@@ -84,22 +84,25 @@ function displayData(data) {
 
 }
 
+
+
+
 document.addEventListener("DOMContentLoaded", function(){
 
-  let btn = document.querySelector("button")
 
   async function randomUser() {
 
     let r = await fetch('https://randomuser.me/api')
       if (r.ok) {
-        const div = document.querySelector('div');
         let data = await r.json()
         displayData(data)
           console.log(data.results);
       }
   }
-
+  
+ let btn = document.querySelector("button")
   randomUser()
+ 
 
   btn.addEventListener("click", randomUser)
 
