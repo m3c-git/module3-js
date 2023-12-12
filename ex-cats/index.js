@@ -4,17 +4,14 @@ document.addEventListener("DOMContentLoaded", function(){
 
   async function catInfos() {
 
-    fetch('https://catfact.ninja/fact').then(function (response) {
-      console.log(response);
-      if (response.ok) {
-        response.json().then(function (data) {
-          let fact = document.querySelector(".fact")
+    let r = await fetch('https://catfact.ninja/fact')
+ console.log(r);
+      if (r.ok) {
+        let data = await r.json()
+        let fact = document.querySelector(".fact")
           fact.innerText = data.fact
           console.log(data.fact);
-        });
       }
-    });
-
   }
 
   catInfos()
