@@ -25,7 +25,7 @@ fetch(apiUrl).then(function (response) {
 */
 
 // ETAPE 2
-function displayData(data) {
+/* function displayData(data) {
   let firstName = data.results[0].name.first;
   let lastName = data.results[0].name.last;
 
@@ -41,4 +41,67 @@ fetch(apiUrl).then(function (response) {
   if (response.ok) {
     response.json().then(displayData)
   }
+});
+ */
+
+
+function displayData(data) {
+  let firstName = data.results[0].name.first;
+  let lastName = data.results[0].name.last;
+  let adresse = data.results[0].location.street.number+ ' ' + data.results[0].location.street.name + ' ' + data.results[0].location.postcode + ' ' + data.results[0].location.city
+  let phone = data.results[0].phone;
+  let picture = data.results[0].picture.large;
+
+  const div = document.createElement('div');
+
+  const p = document.createElement('p');
+  p.textContent = firstName + ' ' + lastName;
+
+  const pAdresse = document.createElement('p');
+  pAdresse.textContent = adresse;
+
+  const pPhone = document.createElement('p');
+  pPhone.textContent = phone;
+
+  const pPicture = document.createElement('picture');
+  const img = document.createElement('img');
+  img.setAttribute("src",picture);
+  img.setAttribute("alt","photo de profil user");
+
+  const button = document.createElement('button');
+  button.textContent = "Génrérer un nouveau profil"
+
+
+  const container = document.querySelector('.container');
+
+  container.textContent = ""
+  container.prepend(pPicture)
+  container.prepend(div);
+  div.prepend(p);
+  div.prepend(pAdresse);
+  div.prepend(pPhone);
+  pPicture.appendChild(img);
+
+}
+
+document.addEventListener("DOMContentLoaded", function(){
+
+  let btn = document.querySelector("button")
+
+  async function randomUser() {
+
+    let r = await fetch('https://randomuser.me/api')
+      if (r.ok) {
+
+        let data = await r.json()
+        displayData(data)
+          console.log(data.results);
+      }
+  }
+
+  randomUser()
+
+  btn.addEventListener("click", randomUser)
+
+
 });
