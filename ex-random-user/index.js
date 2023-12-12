@@ -74,23 +74,21 @@ function displayData(data) {
 
   const container = document.querySelector('.container');
 
+  pPicture.remove()
+  div.remove()
+
   container.prepend(pPicture)
   container.prepend(div);
-  div.prepend(p);
-  div.prepend(pAdresse);
-  div.prepend(pPhone);
+  div.appendChild(p);
+  div.appendChild(pAdresse);
+  div.appendChild(pPhone);
   pPicture.appendChild(img);
   container.appendChild(button);
 
 }
 
 
-
-
-document.addEventListener("DOMContentLoaded", function(){
-
-
-  async function randomUser() {
+async function randomUser() {
 
     let r = await fetch('https://randomuser.me/api')
       if (r.ok) {
@@ -99,12 +97,22 @@ document.addEventListener("DOMContentLoaded", function(){
           console.log(data.results);
       }
   }
-  
- let btn = document.querySelector("button")
-  randomUser()
- 
 
-  btn.addEventListener("click", randomUser)
+
+
+async function refresh() {
+
+  location.reload()
+
+};
+
+document.addEventListener("DOMContentLoaded",  async function(){
+
+  await randomUser()
+
+ let btn = document.querySelector("button")
+
+  btn.addEventListener("click", refresh)
 
 
 });
