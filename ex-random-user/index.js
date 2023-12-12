@@ -74,13 +74,13 @@ function displayData(data) {
 
   const container = document.querySelector('.container');
 
-  container.textContent = ""
   container.prepend(pPicture)
   container.prepend(div);
   div.prepend(p);
   div.prepend(pAdresse);
   div.prepend(pPhone);
   pPicture.appendChild(img);
+  container.appendChild(button);
 
 }
 
@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
     let r = await fetch('https://randomuser.me/api')
       if (r.ok) {
-
+        const div = document.querySelector('div');
         let data = await r.json()
         displayData(data)
           console.log(data.results);
