@@ -5,8 +5,6 @@ document.addEventListener("DOMContentLoaded",  async function(){
     const cart = document.querySelector('.cart');
 
 
-    
-
     function displayData(data) {
 
         function datesDiff() {
@@ -26,11 +24,12 @@ document.addEventListener("DOMContentLoaded",  async function(){
         img.setAttribute("alt","avatar git");
 
 
-        const plogin = document.createElement('p');
+        const plogin = document.createElement('h1');
         plogin.textContent = login;
 
         const pname = document.createElement('p');
         pname.textContent = name;
+        pname.classList.add("pname")
 
         const pdatecreation = document.createElement('p');
         pdatecreation.textContent = datecreation;
@@ -39,7 +38,7 @@ document.addEventListener("DOMContentLoaded",  async function(){
         pnbrrepo.textContent = nbrrepo;
 
         const button = document.createElement('button');
-        button.textContent = ""
+        button.classList.add("voirbtn")
 
         const agitlink = document.createElement('a');
         agitlink.textContent = "Voir"
@@ -55,13 +54,13 @@ document.addEventListener("DOMContentLoaded",  async function(){
 
     }
 
-
     async function infoGitUser() {
-        gitnamebtn.addEventListener("click", async ()=> {
+        gitnamebtn.addEventListener("click", async (e)=> {
+
             let valuegitname = gitname.value
-            console.log(cart)
 
             try{
+             
                 const r = await fetch('https://api.github.com/users/' + `${valuegitname}`,{
                     headers: {
                         Accept: 'application/json'
@@ -69,6 +68,7 @@ document.addEventListener("DOMContentLoaded",  async function(){
                 })
 
                 if (r.ok) {
+                    cart.textContent = "";
                     let data = await r.json()
                     displayData(data)
                     console.log(data);
@@ -80,15 +80,10 @@ document.addEventListener("DOMContentLoaded",  async function(){
                 cart.style.color = 'red';
                 return;
             }
-            
-
         
         })
-
-
         
     }; 
-
 
     async function refresh() {
 

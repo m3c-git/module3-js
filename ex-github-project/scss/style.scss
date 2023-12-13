@@ -1,0 +1,106 @@
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0 auto;
+    color: white;
+}
+
+.container{
+
+    background: #023e8a;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 5em;
+    header{
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem 20%;
+        row-gap: 2em;
+        width: 100%;
+
+        input{
+            height: 3rem;
+            width: 60%;
+            border-radius: 10px;
+        
+        }
+
+        .btn{
+            height: 2rem;
+            width: 10rem;
+            background: #0077b6;
+            color: white;
+            border-radius: 10px;
+            border: none;
+        
+        }
+
+       
+    }
+
+}
+
+ .cart{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    color: black;    
+    background: white;
+    width: 80%;
+    border-radius: 5%;
+    padding: 3rem 20%;
+    font-size: 3rem;
+    row-gap: 0em;
+
+    h1 p{
+        margin: 0;
+    }
+
+        picture{
+            width: 20rem;
+            height: 30rem;
+            border-radius: 100%;
+
+
+            img{
+                width: 20rem;
+                height: 100%;
+                object-fit: contain;
+                border-radius: 100%;
+            }
+        }
+
+    p{
+        font-size: 2rem;
+        width: 100%;
+        text-align: center;
+
+    }
+    .voirbtn{
+        height: 3rem;
+        width: 80%;
+        background: #023e8a;
+        border-radius: 50px;
+        border: none;
+        
+        a{
+            text-decoration: none;
+            color: white;
+        }
+    }
+
+        }
+
+
+.voirbtn{
+    background: #023e8a;
+}
