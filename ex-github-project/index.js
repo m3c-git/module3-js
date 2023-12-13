@@ -56,6 +56,7 @@ document.addEventListener("DOMContentLoaded",  async function(){
 
     async function infoGitUser() {
         gitnamebtn.addEventListener("click", async (e)=> {
+            e.preventDefault()
 
             let valuegitname = gitname.value
 

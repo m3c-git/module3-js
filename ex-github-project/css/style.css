@@ -20,8 +20,15 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
+}
+.container header form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 2rem 20%;
-  row-gap: 2em;
+  row-gap: 3em;
   width: 100%;
 }
 .container header input {

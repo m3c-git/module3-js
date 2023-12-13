@@ -22,10 +22,19 @@ body{
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding: 2rem 20%;
-        row-gap: 2em;
+
         width: 100%;
 
+        form{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 20%;
+            row-gap: 3em;
+            width: 100%;
+    
+        }
         input{
             height: 3rem;
             width: 60%;
