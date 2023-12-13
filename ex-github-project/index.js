@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded",  async function(){
         gitnamebtn.addEventListener("click", async (e)=> {
             e.preventDefault()
 
-            let valuegitname = gitname.value
+            let valuegitname = gitname.value.trim()
 
             try{
              
@@ -72,12 +72,21 @@ document.addEventListener("DOMContentLoaded",  async function(){
                     cart.textContent = "";
                     let data = await r.json()
                     displayData(data)
-                    console.log(data);
-                } else {
+                    console.log(r);
+                } else if(valuegitname === ""){
+                    cart.innerText = "Ne champs ne peut pas être vide";
+                    cart.style.color = 'blue';                
+                }else if (r.status === 404) {
+
+                    cart.innerText = "User non trouvé";
+                    cart.style.color = 'blue';
+                }
+                else {
                     throw new Error(`${valuegitname} non trouvé` , {cause: r});
                 }
+
             } catch (e) {
-                cart.innerText = `${valuegitname} non trouvé... Vérifier si ${valuegitname} est bien écrit`;
+                cart.innerText = "Impossible de charger l'User...";
                 cart.style.color = 'red';
                 return;
             }
@@ -85,14 +94,6 @@ document.addEventListener("DOMContentLoaded",  async function(){
         })
         
     }; 
-
-    async function refresh() {
-
-        location.reload()
-
-    };
-
-
     await infoGitUser()
 
 });

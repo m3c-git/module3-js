@@ -66,14 +66,14 @@ body {
 }
 .cart picture {
   width: 20rem;
-  height: 30rem;
-  border-radius: 100%;
+  height: 20rem;
+  border-radius: 50%;
 }
 .cart picture img {
   width: 20rem;
-  height: 100%;
+  height: 20rem;
   object-fit: contain;
-  border-radius: 100%;
+  border-radius: 50%;
 }
 .cart p {
   font-size: 2rem;
