@@ -37,6 +37,9 @@ body {
   border-radius: 10px;
   border: none;
 }
+.container button {
+  cursor: pointer;
+}
 
 .cart {
   display: flex;
